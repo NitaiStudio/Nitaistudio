@@ -26,7 +26,7 @@
     <img src="https://img.shields.io/badge/Hire%20Me-Fiverr-1dbf73?style=for-the-badge&logo=fiverr&logoColor=white" alt="Hire on Fiverr"/>
   </a>
   &nbsp;
-  <a href="https://wa.me/919564287717" target="_blank">
+  <a href="https://wa.me/91" target="_blank">
     <img src="https://img.shields.io/badge/Chat-WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Chat on WhatsApp"/>
   </a>
 
