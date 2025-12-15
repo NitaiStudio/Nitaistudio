@@ -73,7 +73,7 @@ Ready to start your project? Let's discuss your requirements.
 
 *   **🌐 Website:** [Visit Nitai Studio](https://nitaistudio.github.io/Nitaistudio/)
 *   **Fiverr (Global Clients):** [https://www.fiverr.com/appsdeveloper12](https://www.fiverr.com/appsdeveloper12)
-*   **WhatsApp (Quick Chat):** [+91 95642 87717](https://wa.me/919564287717)
+*   **WhatsApp (Quick Chat):** [+91 95642 87717](https://wa.me/91)
 *   **Email:** nitaisarkar7733@gmail.com
 
 <div align="center">
