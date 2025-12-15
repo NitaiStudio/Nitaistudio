@@ -1,26 +1,28 @@
 <div align="center">
 
-  <!-- HEADER ANIMATION (Matches your Splash Screen) -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=020617&height=250&section=header&text=NITAI%20STUDIO&fontSize=80&fontColor=06b6d4&animation=fadeIn&fontAlignY=35&desc=Software%20Developer%20%7C%20Android%20%26%20Web%20Specialist&descAlignY=55&descAlign=50&descColor=7c3aed" alt="Nitai Studio Header" />
+  <!-- HEADER ANIMATION (Fixed & Linked to Website) -->
+  <a href="https://nitaistudio.github.io/Nitaistudio/">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=020617&height=250&section=header&text=NITAI%20STUDIO&fontSize=70&fontColor=06b6d4&animation=fadeIn&fontAlignY=35&desc=Software%20Developer%20%7C%20Android%20%26%20Web%20Specialist&descAlignY=55&descAlign=50&descColor=7c3aed" alt="Nitai Studio Header" />
+  </a>
 
   <!-- TYPING TERMINAL EFFECT -->
-  <a href="https://git.io/typing-svg">
+  <a href="https://nitaistudio.github.io/Nitaistudio/">
     <img src="https://readme-typing-svg.herokuapp.com?font=Space+Grotesk&weight=600&size=22&pause=1000&color=22C55E&center=true&vCenter=true&width=500&lines=%3E+initializing_core...;%3E+modules_loaded_ok;%3E+starting_system...;%3E+Welcome_to_Nitai_Studio" alt="Terminal Effect" />
   </a>
 
   <br>
 
-  <!-- SOCIAL / CONTACT BUTTONS -->
+  <!-- WEBSITE & SOCIAL BUTTONS -->
+  <a href="https://nitaistudio.github.io/Nitaistudio/" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Visit-Live_Website-06b6d4?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Visit Website"/>
+  </a>
+  &nbsp;
   <a href="https://www.fiverr.com/appsdeveloper12" target="_blank">
     <img src="https://img.shields.io/badge/Hire%20Me-Fiverr-1dbf73?style=for-the-badge&logo=fiverr&logoColor=white" alt="Hire on Fiverr"/>
   </a>
   &nbsp;
   <a href="https://wa.me/919564287717" target="_blank">
     <img src="https://img.shields.io/badge/Chat-WhatsApp-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="Chat on WhatsApp"/>
-  </a>
-  &nbsp;
-  <a href="mailto:nitaisarkar7733@gmail.com">
-    <img src="https://img.shields.io/badge/Email-Contact-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Me"/>
   </a>
 
 </div>
@@ -33,6 +35,8 @@
 > **Professional Android Apps, Web Platforms, and Custom Software Solutions. High performance, secure, and production-ready.**
 
 Welcome to the official repository of **Nitai Studio**. I am a professional software developer based in India, dedicated to empowering businesses with cutting-edge technology. Whether you need a native Android application, a complex web platform, or UI/UX design, I deliver code that works.
+
+👉 **Check out my portfolio:** [https://nitaistudio.github.io/Nitaistudio/](https://nitaistudio.github.io/Nitaistudio/)
 
 ---
 
@@ -62,6 +66,7 @@ Welcome to the official repository of **Nitai Studio**. I am a professional soft
 
 Ready to start your project? Let's discuss your requirements.
 
+*   **🌐 Website:** [Visit Nitai Studio](https://nitaistudio.github.io/Nitaistudio/)
 *   **Fiverr (Global Clients):** [https://www.fiverr.com/appsdeveloper12](https://www.fiverr.com/appsdeveloper12)
 *   **WhatsApp (Quick Chat):** [+91 95642 87717](https://wa.me/919564287717)
 *   **Email:** nitaisarkar7733@gmail.com
