@@ -1,9 +1,14 @@
 <div align="center">
 
-  <!-- HEADER ANIMATION (Fixed & Linked to Website) -->
+  <!-- HEADER ANIMATION (Simplified to fix loading issue) -->
   <a href="https://nitaistudio.github.io/Nitaistudio/">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=020617&height=250&section=header&text=NITAI%20STUDIO&fontSize=70&fontColor=06b6d4&animation=fadeIn&fontAlignY=35&desc=Software%20Developer%20%7C%20Android%20%26%20Web%20Specialist&descAlignY=55&descAlign=50&descColor=7c3aed" alt="Nitai Studio Header" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=020617&height=200&section=header&text=NITAI%20STUDIO&fontSize=70&fontColor=06b6d4&animation=fadeIn&fontAlignY=40" alt="Nitai Studio Header" />
   </a>
+
+  <!-- SUB-TITLE (As Text for better SEO & Loading) -->
+  <h3 style="color: #7c3aed; margin-top: -20px;">
+    Software Developer | Android & Web Specialist
+  </h3>
 
   <!-- TYPING TERMINAL EFFECT -->
   <a href="https://nitaistudio.github.io/Nitaistudio/">
