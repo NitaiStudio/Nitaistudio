@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nitai Studio | Software Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* --- GLOBAL VARIABLES --- */
+  :root {
+    --bg: #020617;
+    --card-bg: rgba(30, 41, 59, 0.4);
+    --cyan: #06b6d4;
+    --purple: #7c3aed;
+    --green: #22c55e;
+    --text-main: #f8fafc;
+    --text-dim: #94a3b8;
+  }
+
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    overflow-x: hidden;
+  }
+
+  /* =========================================
+     PART 1: SPLASH SCREEN STYLES
+     ========================================= */
+  #splash-screen {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: var(--bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: 'Courier New', monospace;
+    transition: opacity 0.8s ease-out;
+  }
+
+  .grid-bg {
+    position: absolute;
+    width: 200%; height: 200%;
+    background-image: 
+      linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    transform: perspective(500px) rotateX(60deg) translateY(-100px) translateZ(-200px);
+    animation: gridMove 20s linear infinite;
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  .logo-svg { width: 100px; height: 100px; filter: drop-shadow(0 0 15px rgba(124, 58, 237, 0.6)); }
+  .logo-path {
+    fill: none; stroke: url(#grad1); stroke-width: 8; stroke-linecap: round; stroke-linejoin: round;
+    stroke-dasharray: 400; stroke-dashoffset: 400;
+    animation: drawLogo 2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
+  }
+  .terminal-text { color: var(--cyan); font-size: 14px; margin-bottom: 20px; text-align: center; }
+  .typing-cursor::after { content: '_'; animation: blink 0.8s infinite; }
+
+  @keyframes drawLogo { to { stroke-dashoffset: 0; } }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  @keyframes gridMove { 0% { transform: perspective(500px) rotateX(60deg) translateY(0); } 100% { transform: perspective(500px) rotateX(60deg) translateY(40px); } }
+
+  /* =========================================
+     PART 2: MAIN WEBSITE STYLES
+     ========================================= */
+  #main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+    padding-bottom: 80px;
+  }
+
+  /* Header */
+  header {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    background: rgba(2, 6, 23, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky; top: 0; z-index: 100;
+  }
+  .brand { font-family: 'Space Grotesk'; font-size: 1.5rem; font-weight: 700; letter-spacing: 1px; }
+  .brand span { color: var(--cyan); }
+
+  /* Hero */
+  .hero {
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+  h1 {
+    font-family: 'Space Grotesk';
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    background: linear-gradient(to right, #fff, #94a3b8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0 auto 1.5rem;
+  }
+  .hero p { color: var(--text-dim); max-width: 600px; margin: 0 auto 2rem; line-height: 1.6; }
+
+  /* Buttons */
+  .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    text-decoration: none; padding: 14px 28px; border-radius: 50px;
+    font-weight: 600; font-size: 1rem; transition: transform 0.2s;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .btn:hover { transform: translateY(-3px); }
+  .btn-fiverr { background: var(--text-main); color: var(--bg); }
+  .btn-whatsapp { 
+    background: rgba(34, 197, 94, 0.15); 
+    color: var(--green); 
+    border: 1px solid rgba(34, 197, 94, 0.4); 
+    box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+  }
+
+  /* Features Grid */
+  .features-section { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+  .section-title { font-family: 'Space Grotesk'; font-size: 2rem; margin-bottom: 2rem; border-left: 4px solid var(--purple); padding-left: 1rem; }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card:hover {
+    background: rgba(30, 41, 59, 0.7);
+    border-color: var(--purple);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px -10px rgba(124, 58, 237, 0.3);
+  }
+  .card h3 { margin-top: 0; color: var(--cyan); display: flex; align-items: center; gap: 10px; }
+  .card p { color: var(--text-dim); font-size: 0.95rem; line-height: 1.6; }
+  .icon { font-size: 1.5rem; }
+
+  /* =========================================
+     PART 3: FOOTER STYLES (UPDATED)
+     ========================================= */
+  .site-footer {
+    max-width: 1200px;
+    margin: 4rem auto 0;
+    padding: 3rem 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    background: rgba(2, 6, 23, 0.5);
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .footer-col h4 {
+    font-family: 'Space Grotesk';
+    color: var(--text-main);
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  
+  .footer-col h4::after {
+    content: '';
+    position: absolute; left: 0; bottom: -8px;
+    width: 40px; height: 2px;
+    background: var(--purple);
+  }
+
+  .footer-link {
+    display: block;
+    color: var(--text-dim);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .footer-link:hover {
+    color: var(--cyan);
+    transform: translateX(5px);
+  }
+
+  .footer-copy {
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    padding-top: 2rem;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  /* Floating Whatsapp */
+  .fab-whatsapp {
+    position: fixed; bottom: 30px; right: 30px;
+    width: 60px; height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.5);
+    z-index: 200;
+    transition: transform 0.2s;
+  }
+  .fab-whatsapp:hover { transform: scale(1.1); }
+  .fab-whatsapp svg { width: 32px; height: 32px; fill: white; }
+
+</style>
+</head>
+<body>
+
+  <!-- ========================
+       SPLASH SCREEN
+       ======================== -->
+  <div id="splash-screen">
+    <div class="grid-bg"></div>
+    <div style="text-align: center;">
+      <div class="terminal-text" id="term-text">> initializing_core<span class="typing-cursor"></span></div>
+      <svg class="logo-svg" viewBox="0 0 100 100">
+        <defs>
+          <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:var(--cyan)" />
+            <stop offset="100%" style="stop-color:var(--purple)" />
+          </linearGradient>
+        </defs>
+        <path class="logo-path" d="M 25 25 L 25 75 L 75 25 L 75 75" />
+      </svg>
+      <div style="font-family:'Space Grotesk'; font-weight:700; font-size:24px; margin-top:15px; letter-spacing:2px;">NITAI STUDIO</div>
+    </div>
+  </div>
+
+  <!-- ========================
+       MAIN WEBSITE CONTENT
+       ======================== -->
+  <div id="main-content">
+    
+    <!-- Header -->
+    <header>
+      <div class="brand">NITAI <span>STUDIO</span></div>
+      <a href="https://www.fiverr.com/appsdeveloper12" target="_blank" class="btn btn-fiverr" style="padding: 8px 16px; font-size: 0.9rem;">
+        Hire Me
+      </a>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div style="position:absolute; top:-50%; left:50%; width:600px; height:600px; background:radial-gradient(var(--purple), transparent 70%); opacity:0.2; transform:translateX(-50%); filter:blur(80px); z-index:-1;"></div>
+      
+      <h1>Full Stack Software<br>Development</h1>
+      <p>Professional Android Apps, Web Platforms, and Custom Software Solutions. High performance, secure, and production-ready.</p>
+      
+      <div class="btn-group">
+        <a href="https://wa.me/919564287717?text=Hi%20Nitai,%20I%20need%20a%20software%20quote." class="btn btn-whatsapp">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Chat on WhatsApp
+        </a>
+        <a href="https://www.fiverr.com/appsdeveloper12" class="btn btn-fiverr">
+          View Fiverr Profile
+        </a>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="features-section">
+      <h2 class="section-title">My Expertise</h2>
+      <div class="grid">
+        <div class="card">
+          <h3><span class="icon">📱</span> Android App Dev</h3>
+          <p>Native Android development using Kotlin and Java. I build responsive, crash-free apps with modern UI (Jetpack Compose) and publish them to the Play Store.</p>
+        </div>
+        <div class="card">
+          <h3><span class="icon">💻</span> Web Development</h3>
+          <p>Full-stack websites using React.js, Next.js, and HTML/CSS. SEO-optimized, mobile responsive, and fast loading performance.</p>
+        </div>
+        <div class="card">
+          <h3><span class="icon">🎨</span> UI/UX Design</h3>
+          <p>Modern app and website interfaces designed in Figma. I focus on user experience, dark mode support, and clean aesthetics.</p>
+        </div>
+        <div class="card">
+          <h3><span class="icon">💳</span> Payment Integration</h3>
+          <p>Secure integration of Payment Gateways (Razorpay, PayU, Stripe) and UPI deep-links into your website or app.</p>
+        </div>
+        <div class="card">
+          <h3><span class="icon">🔧</span> Backend & APIs</h3>
+          <p>Robust server-side logic using Node.js or Python. Database management (Firebase/MySQL) and REST API creation.</p>
+        </div>
+        <div class="card">
+          <h3><span class="icon">🐞</span> Bug Fixing</h3>
+          <p>Stuck with an error? I provide hourly consultation to debug your code, fix crashes, and optimize application performance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+         UPDATED FOOTER
+         ========================================= -->
+    <footer class="site-footer">
+      <div class="footer-grid">
+        
+        <!-- Column 1: Brand info -->
+        <div class="footer-col">
+          <h4>Nitai Studio</h4>
+          <p style="color: var(--text-dim); line-height: 1.6;">
+            Empowering businesses with cutting-edge software solutions. From Android apps to complex web platforms, we build digital success.
+          </p>
+          <div style="margin-top: 1rem;">
+             <span style="color: var(--cyan); font-weight: bold;">E:</span> nitaisarkar7733@gmail.com
+          </div>
+        </div>
+
+        <!-- Column 2: Legal & Links -->
+        <div class="footer-col">
+          <h4>Legal & Support</h4>
+          <a href="https://nitaistudioapp.blogspot.com/p/contact-us.html" target="_blank" class="footer-link">
+            <span>📞</span> Contact Us
+          </a>
+          <a href="https://nitaistudioapp.blogspot.com/p/terms-conditions.html" target="_blank" class="footer-link">
+            <span>📜</span> Terms & Conditions
+          </a>
+          <a href="https://nitaistudioapp.blogspot.com/p/cancellation-refund-policy.html" target="_blank" class="footer-link">
+            <span>💸</span> Cancellation & Refund Policy
+          </a>
+        </div>
+
+      </div>
+
+      <div class="footer-copy">
+        &copy; 2025 Nitai Sarkar. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <a href="https://wa.me/919564287717?text=Hi%20Nitai,%20I%20saw%20your%20portfolio." class="fab-whatsapp" title="Chat on WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+    </a>
+
+  </div>
+
+  <!-- LOGIC SCRIPT -->
+  <script>
+    const termText = document.getElementById('term-text');
+    const splash = document.getElementById('splash-screen');
+    const main = document.getElementById('main-content');
+
+    // 1. Terminal Typing Effect
+    setTimeout(() => { termText.innerHTML = "> loading_modules..."; }, 1000);
+    setTimeout(() => { termText.innerHTML = "> modules_loaded_ok"; termText.style.color = "#4ade80"; }, 2500);
+    setTimeout(() => { termText.innerHTML = "> starting_system..."; }, 3500);
+
+    // 2. Remove Splash & Show Site
+    setTimeout(() => {
+      splash.style.opacity = '0';
+      splash.style.pointerEvents = 'none'; 
+      main.style.display = 'block';
+      setTimeout(() => { main.style.opacity = '1'; }, 50);
+    }, 4500);
+  </script>
+
+</body>
+</html>
