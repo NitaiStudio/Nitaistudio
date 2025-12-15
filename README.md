@@ -75,7 +75,9 @@ Ready to start your project? Let's discuss your requirements.
 *   **Fiverr (Global Clients):** [https://www.fiverr.com/appsdeveloper12](https://www.fiverr.com/appsdeveloper12)
 *   **WhatsApp (Quick Chat):** [+91 ](https://wa.me/91)
 *   **Email:** nitaisarkar7733@gmail.com
-
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-FFDD00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/nitaigrp00a)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20Me-FF5E5B?logo=ko-fi&logoColor=white)](https://ko-fi.com/nitaisarkar)
+[![Patreon](https://img.shields.io/badge/Patreon-Support%20Me-F96854?logo=patreon&logoColor=white)](https://www.patreon.com/cw/NitaiStudio)
 <div align="center">
   <br>
   <img src="https://capsule-render.vercel.app/api?type=rect&color=020617&height=50&section=footer&text=©%202025%20Nitai%20Sarkar.%20All%20rights%20reserved.&fontSize=14&fontColor=94a3b8" />
